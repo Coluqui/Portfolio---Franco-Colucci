@@ -1,0 +1,40 @@
+---
+const { locale, t } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href={`/${locale}/`} class="site-header-name">Franco Colucci</a>
+    <div class="site-header-actions">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label={t.nav.themeToggleLabel}>
+        <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+        <span id="theme-toggle-text">{t.nav.themeToggleLabel}</span>
+      </button>
+      <a href={t.nav.langSwitchPath} class="icon-btn" data-lang-switch>
+        {t.nav.langSwitchLabel}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    var icon = document.getElementById('theme-toggle-icon');
+
+    function sync() {
+      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      icon.textContent = current === 'dark' ? '🌙' : '☀️';
+    }
+
+    sync();
+
+    btn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      sync();
+    });
+  })();
+</script>
