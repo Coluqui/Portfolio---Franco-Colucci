@@ -1,0 +1,16 @@
+---
+const { t } = Astro.props;
+const w = t.webs;
+---
+
+<div class="webs-highlight">
+  <h3>{w.title}</h3>
+  <div class="webs-links">
+    {w.items.map((item) => (
+      <a class="webs-link" href={item.url} target="_blank" rel="noopener noreferrer">
+        {item.name}
+        <span aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </div>
+</div>
