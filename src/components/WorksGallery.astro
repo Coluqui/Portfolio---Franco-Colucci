@@ -10,14 +10,25 @@ const w = t.works;
       <p>{w.subtitle}</p>
     </div>
 
-    <div class="works-grid">
-      {w.items.map((item, i) => (
-        <button class="work-tile" type="button" data-lightbox-trigger data-index={i}>
-          <img src={item.src} alt={item.alt} loading="lazy" />
-          <span class="work-tile-tag">{item.project}</span>
-        </button>
-      ))}
-    </div>
+    {w.groups.map((group) => (
+      <div class="works-group">
+        <div class="works-group-heading">
+          <h3>{group.client}</h3>
+          <div class="tag-list">
+            {group.categories.map((cat) => <span class="chip">{w.categoryLabels[cat]}</span>)}
+          </div>
+        </div>
+
+        <div class="works-grid">
+          {group.items.map((item) => (
+            <button class="work-tile" type="button" data-lightbox-trigger>
+              <img src={item.src} alt={item.alt} loading="lazy" />
+              <span class="work-tile-tag">{group.client}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 
