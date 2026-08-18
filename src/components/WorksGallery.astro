@@ -1,0 +1,98 @@
+---
+const { t } = Astro.props;
+const w = t.works;
+---
+
+<section id="works">
+  <div class="wrap">
+    <div class="section-heading">
+      <h2>{w.title}</h2>
+      <p>{w.subtitle}</p>
+    </div>
+
+    <div class="works-grid">
+      {w.items.map((item, i) => (
+        <button class="work-tile" type="button" data-lightbox-trigger data-index={i}>
+          <img src={item.src} alt={item.alt} loading="lazy" />
+          <span class="work-tile-tag">{item.project}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" data-lightbox aria-hidden="true">
+  <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar">×</button>
+  <button class="lightbox-nav lightbox-prev" type="button" data-lightbox-prev aria-label="Anterior">‹</button>
+  <figure class="lightbox-figure">
+    <img class="lightbox-image" data-lightbox-image src="" alt="" />
+    <figcaption class="lightbox-caption" data-lightbox-caption></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Siguiente">›</button>
+</div>
+
+<script is:inline>
+  (function () {
+    var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox-trigger]'));
+    if (!triggers.length) return;
+
+    var lightbox = document.querySelector('[data-lightbox]');
+    var imgEl = lightbox.querySelector('[data-lightbox-image]');
+    var captionEl = lightbox.querySelector('[data-lightbox-caption]');
+    var closeBtn = lightbox.querySelector('[data-lightbox-close]');
+    var prevBtn = lightbox.querySelector('[data-lightbox-prev]');
+    var nextBtn = lightbox.querySelector('[data-lightbox-next]');
+
+    var items = triggers.map(function (trigger) {
+      var img = trigger.querySelector('img');
+      var tag = trigger.querySelector('.work-tile-tag');
+      return { src: img.src, alt: img.alt, project: tag ? tag.textContent : '' };
+    });
+
+    var current = 0;
+
+    function render() {
+      var item = items[current];
+      imgEl.src = item.src;
+      imgEl.alt = item.alt;
+      captionEl.textContent = item.project;
+    }
+
+    function open(index) {
+      current = (index + items.length) % items.length;
+      render();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach(function (trigger, i) {
+      trigger.addEventListener('click', function () {
+        open(i);
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', function () {
+      open(current - 1);
+    });
+    nextBtn.addEventListener('click', function () {
+      open(current + 1);
+    });
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') open(current - 1);
+      if (e.key === 'ArrowRight') open(current + 1);
+    });
+  })();
+</script>
