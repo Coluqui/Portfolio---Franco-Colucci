@@ -67,274 +67,278 @@
   "works": {
     "title": "Mis trabajos",
     "subtitle": "Una selección rápida de piezas diseñadas para distintas marcas y proyectos.",
-    "items": [
+    "categoryLabels": {
+      "redes": "Redes sociales",
+      "ads": "Publicidad digital",
+      "web": "Diseño web",
+      "email": "Email marketing",
+      "ebooks": "Ebooks",
+      "video": "Video",
+      "branding": "Branding"
+    },
+    "groups": [
       {
-        "src": "/proyectos/iscamen/01.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
+        "client": "ISCAMEN",
+        "categories": [
+          "redes",
+          "ads",
+          "web",
+          "video"
+        ],
+        "items": [
+          {
+            "src": "/proyectos/iscamen/01.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/02.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/03.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/04.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/05.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/06.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/07.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/08.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/09.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/10.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/11.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/12.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/13.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/14.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/15.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/16.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/17.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/18.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          },
+          {
+            "src": "/proyectos/iscamen/19.jpg",
+            "alt": "Pieza de diseño — ISCAMEN"
+          }
+        ]
       },
       {
-        "src": "/proyectos/iscamen/02.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
+        "client": "MoonDesk",
+        "categories": [
+          "redes",
+          "web",
+          "ebooks",
+          "email",
+          "ads"
+        ],
+        "items": [
+          {
+            "src": "/proyectos/moondesk/01.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/02.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/03.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/04.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/05.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/06.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/07.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/08.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/09.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/10.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/11.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/12.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/13.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/14.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/15.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/16.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/17.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/18.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          },
+          {
+            "src": "/proyectos/moondesk/19.jpg",
+            "alt": "Pieza de diseño — MoonDesk"
+          }
+        ]
       },
       {
-        "src": "/proyectos/iscamen/03.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
+        "client": "Carpa",
+        "categories": [
+          "ebooks",
+          "ads"
+        ],
+        "items": [
+          {
+            "src": "/proyectos/carpa/01.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/02.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/03.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/04.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/05.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/06.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/07.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/08.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/09.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/10.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          },
+          {
+            "src": "/proyectos/carpa/11.jpg",
+            "alt": "Pieza de diseño — Carpa"
+          }
+        ]
       },
       {
-        "src": "/proyectos/iscamen/04.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/05.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/06.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/07.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/08.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/09.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/10.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/11.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/12.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/13.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/14.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/15.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/16.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/17.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/18.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/iscamen/19.jpg",
-        "alt": "Pieza de diseño — ISCAMEN",
-        "project": "ISCAMEN"
-      },
-      {
-        "src": "/proyectos/moondesk/01.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/02.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/03.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/04.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/05.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/06.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/07.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/08.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/09.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/10.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/11.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/12.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/13.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/14.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/15.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/16.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/17.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/18.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/moondesk/19.jpg",
-        "alt": "Pieza de diseño — MoonDesk",
-        "project": "MoonDesk"
-      },
-      {
-        "src": "/proyectos/carpa/01.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/02.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/03.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/04.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/05.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/06.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/07.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/08.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/09.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/10.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/carpa/11.jpg",
-        "alt": "Pieza de diseño — Carpa",
-        "project": "Carpa"
-      },
-      {
-        "src": "/proyectos/condimento/01.jpg",
-        "alt": "Pieza de diseño — Condimento",
-        "project": "Condimento"
-      },
-      {
-        "src": "/proyectos/condimento/02.jpg",
-        "alt": "Pieza de diseño — Condimento",
-        "project": "Condimento"
-      },
-      {
-        "src": "/proyectos/condimento/03.jpg",
-        "alt": "Pieza de diseño — Condimento",
-        "project": "Condimento"
+        "client": "Condimento",
+        "categories": [
+          "branding",
+          "ads"
+        ],
+        "items": [
+          {
+            "src": "/proyectos/condimento/01.jpg",
+            "alt": "Pieza de diseño — Condimento"
+          },
+          {
+            "src": "/proyectos/condimento/02.jpg",
+            "alt": "Pieza de diseño — Condimento"
+          },
+          {
+            "src": "/proyectos/condimento/03.jpg",
+            "alt": "Pieza de diseño — Condimento"
+          }
+        ]
       }
     ]
   },
   "webs": {
     "title": "Algunas webs en las que he participado",
     "items": [
-      { "name": "ISCAMEN", "url": "https://iscamen.com.ar/" },
-      { "name": "Interlink", "url": "https://interlink.la/" }
+      {
+        "name": "ISCAMEN",
+        "url": "https://iscamen.com.ar/"
+      },
+      {
+        "name": "Interlink",
+        "url": "https://interlink.la/"
+      }
     ]
   },
   "contact": {
