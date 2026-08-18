@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import WorksGallery from '../../components/WorksGallery.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import Footer from '../../components/Footer.astro';
+import t from '../../i18n/en.json';
+
+const locale = 'en';
+---
+
+<BaseLayout title={t.meta.title} description={t.meta.description} locale={locale}>
+  <Header locale={locale} t={t} />
+  <Hero t={t} locale={locale} />
+  <WorksGallery t={t} />
+  <ContactSection t={t} />
+  <Footer t={t} />
+</BaseLayout>
