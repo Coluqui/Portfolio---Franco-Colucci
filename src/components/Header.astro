@@ -31,12 +31,14 @@ const { locale, t } = Astro.props;
       </button>
       <a
         href={t.nav.langSwitchPath}
-        class="lang-switch"
+        class={`lang-toggle ${locale === 'en' ? 'is-en' : ''}`}
         data-lang-switch
         aria-label={t.nav.langSwitchLabel}
         title={t.nav.langSwitchLabel}
       >
-        {t.nav.langSwitchFlag}
+        <span class="lang-toggle-flag">🇪🇸</span>
+        <span class="lang-toggle-flag">🇬🇧</span>
+        <span class="lang-toggle-knob"></span>
       </a>
     </div>
   </div>

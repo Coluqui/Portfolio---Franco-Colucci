@@ -9,8 +9,7 @@
     "contact": "Contacto",
     "langSwitchLabel": "English",
     "langSwitchPath": "/en/",
-    "themeToggleLabel": "Cambiar tema",
-    "langSwitchFlag": "🇬🇧"
+    "themeToggleLabel": "Cambiar tema"
   },
   "hero": {
     "name": "Franco Colucci",

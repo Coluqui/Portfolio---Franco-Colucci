@@ -1,6 +1,4 @@
 ---
-import WebsHighlight from './WebsHighlight.astro';
-
 const { t, locale } = Astro.props;
 const h = t.hero;
 const initials = h.name
@@ -10,18 +8,18 @@ const initials = h.name
   .slice(0, 2)
   .toUpperCase();
 
-const toolAbbr = {
-  Illustrator: 'Ai',
-  Photoshop: 'Ps',
-  InDesign: 'Id',
-  Figma: 'Fi',
-  WordPress: 'W',
-  Canva: 'Cv',
-  Affinity: 'Af',
-  'IA generativa': 'AI',
-  'Generative AI': 'AI',
-  'Claude Code': 'CC',
-  'Claude Design': 'CD',
+const toolIcons = {
+  Illustrator: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#FF9A00"/><text x="20" y="26.5" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#1A0A00" text-anchor="middle">Ai</text></svg>`,
+  Photoshop: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#31A8FF"/><text x="20" y="26.5" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#001B33" text-anchor="middle">Ps</text></svg>`,
+  InDesign: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#FF3369"/><text x="20" y="26.5" font-family="Arial, sans-serif" font-weight="700" font-size="16" fill="#330012" text-anchor="middle">Id</text></svg>`,
+  Figma: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g><path d="M15 5a5 5 0 000 10h5V5h-5z" fill="#F24E1E"/><path d="M20 5h5a5 5 0 010 10h-5V5z" fill="#FF7262"/><path d="M15 15h5v10h-5a5 5 0 010-10z" fill="#A259FF"/><circle cx="25" cy="20" r="5" fill="#1ABCFE"/><path d="M15 25a5 5 0 105 5v-5h-5z" fill="#0ACF83"/></g></svg>`,
+  WordPress: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="20" fill="#3858E9"/><text x="20" y="26.5" font-family="Georgia, serif" font-weight="700" font-size="17" fill="#fff" text-anchor="middle">W</text></svg>`,
+  Canva: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="canvaGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00C4CC"/><stop offset="55%" stop-color="#7D2AE8"/><stop offset="100%" stop-color="#FF7262"/></linearGradient></defs><circle cx="20" cy="20" r="20" fill="url(#canvaGrad)"/><text x="20" y="26.5" font-family="Arial, sans-serif" font-weight="800" font-size="17" fill="#fff" text-anchor="middle">C</text></svg>`,
+  Affinity: `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#6C1CD3"/><text x="20" y="26.5" font-family="Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">A</text></svg>`,
+  'IA generativa': `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#17171A"/><path d="M20 8l2.2 7.8L30 18l-7.8 2.2L20 28l-2.2-7.8L10 18l7.8-2.2z" fill="#fff"/></svg>`,
+  'Generative AI': `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#17171A"/><path d="M20 8l2.2 7.8L30 18l-7.8 2.2L20 28l-2.2-7.8L10 18l7.8-2.2z" fill="#fff"/></svg>`,
+  'Claude Code': `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#DA7756"/><path d="M15 14l-5 6 5 6M25 14l5 6-5 6M22 12l-4 16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`,
+  'Claude Design': `<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="9" fill="#C2703F"/><path d="M12 28l3-7 12-12 4 4-12 12-7 3z" fill="#fff"/><circle cx="27" cy="13" r="2" fill="#fff"/></svg>`,
 };
 ---
 
@@ -42,9 +40,7 @@ const toolAbbr = {
 
         <div class="hero-tools-row">
           {h.tools.map((tool) => (
-            <span class="hero-tool-badge" title={tool} aria-label={tool}>
-              {toolAbbr[tool] || tool.slice(0, 2)}
-            </span>
+            <span class="hero-tool-icon" title={tool} aria-label={tool} set:html={toolIcons[tool]} />
           ))}
         </div>
       </div>
@@ -61,7 +57,5 @@ const toolAbbr = {
         <span class="hero-blob hero-blob-teal" aria-hidden="true"></span>
       </div>
     </div>
-
-    <WebsHighlight t={t} />
   </div>
 </section>
