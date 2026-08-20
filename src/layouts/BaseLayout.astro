@@ -17,7 +17,7 @@ const { title, description, locale } = Astro.props;
         var stored = localStorage.getItem('theme');
         var theme = stored === 'light' || stored === 'dark'
           ? stored
-          : 'dark';
+          : 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
