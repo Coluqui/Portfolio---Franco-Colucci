@@ -1,5 +1,5 @@
 ---
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
 const w = t.works;
 ---
 
@@ -10,98 +10,18 @@ const w = t.works;
       <p>{w.subtitle}</p>
     </div>
 
-    {w.groups.map((group) => (
-      <div class="works-group">
-        <div class="works-group-heading">
-          <h3>{group.client}</h3>
-          <div class="tag-list">
-            {group.categories.map((cat) => <span class="chip">{w.categoryLabels[cat]}</span>)}
+    <div class="project-cards-grid">
+      {w.groups.map((group) => (
+        <a class="project-card" href={`/${locale}/trabajos/${group.slug}/`}>
+          <div class="project-card-image">
+            <img src={group.items[0].src} alt={group.items[0].alt} loading="lazy" />
           </div>
-        </div>
-
-        <div class="works-grid">
-          {group.items.map((item) => (
-            <button class="work-tile" type="button" data-lightbox-trigger data-client={group.client}>
-              <img src={item.src} alt={item.alt} loading="lazy" />
-            </button>
-          ))}
-        </div>
-      </div>
-    ))}
+          <h3 class="project-card-title">{group.client}</h3>
+          <p class="project-card-meta">
+            {group.categories.map((cat) => w.categoryLabels[cat]).join(', ')}
+          </p>
+        </a>
+      ))}
+    </div>
   </div>
 </section>
-
-<div class="lightbox" data-lightbox aria-hidden="true">
-  <button class="lightbox-close" type="button" data-lightbox-close aria-label="Cerrar">×</button>
-  <button class="lightbox-nav lightbox-prev" type="button" data-lightbox-prev aria-label="Anterior">‹</button>
-  <figure class="lightbox-figure">
-    <img class="lightbox-image" data-lightbox-image src="" alt="" />
-    <figcaption class="lightbox-caption" data-lightbox-caption></figcaption>
-  </figure>
-  <button class="lightbox-nav lightbox-next" type="button" data-lightbox-next aria-label="Siguiente">›</button>
-</div>
-
-<script is:inline>
-  (function () {
-    var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox-trigger]'));
-    if (!triggers.length) return;
-
-    var lightbox = document.querySelector('[data-lightbox]');
-    var imgEl = lightbox.querySelector('[data-lightbox-image]');
-    var captionEl = lightbox.querySelector('[data-lightbox-caption]');
-    var closeBtn = lightbox.querySelector('[data-lightbox-close]');
-    var prevBtn = lightbox.querySelector('[data-lightbox-prev]');
-    var nextBtn = lightbox.querySelector('[data-lightbox-next]');
-
-    var items = triggers.map(function (trigger) {
-      var img = trigger.querySelector('img');
-      return { src: img.src, alt: img.alt, project: trigger.dataset.client || '' };
-    });
-
-    var current = 0;
-
-    function render() {
-      var item = items[current];
-      imgEl.src = item.src;
-      imgEl.alt = item.alt;
-      captionEl.textContent = item.project;
-    }
-
-    function open(index) {
-      current = (index + items.length) % items.length;
-      render();
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    triggers.forEach(function (trigger, i) {
-      trigger.addEventListener('click', function () {
-        open(i);
-      });
-    });
-
-    closeBtn.addEventListener('click', close);
-    prevBtn.addEventListener('click', function () {
-      open(current - 1);
-    });
-    nextBtn.addEventListener('click', function () {
-      open(current + 1);
-    });
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) close();
-    });
-    document.addEventListener('keydown', function (e) {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (e.key === 'Escape') close();
-      if (e.key === 'ArrowLeft') open(current - 1);
-      if (e.key === 'ArrowRight') open(current + 1);
-    });
-  })();
-</script>

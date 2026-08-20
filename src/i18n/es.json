@@ -78,6 +78,7 @@
     },
     "groups": [
       {
+        "slug": "iscamen",
         "client": "ISCAMEN",
         "categories": [
           "redes",
@@ -165,6 +166,7 @@
         ]
       },
       {
+        "slug": "moondesk",
         "client": "MoonDesk",
         "categories": [
           "redes",
@@ -253,6 +255,7 @@
         ]
       },
       {
+        "slug": "carpa",
         "client": "Carpa",
         "categories": [
           "ebooks",
@@ -306,6 +309,7 @@
         ]
       },
       {
+        "slug": "condimento",
         "client": "Condimento",
         "categories": [
           "branding",
@@ -326,7 +330,8 @@
           }
         ]
       }
-    ]
+    ],
+    "backLabel": "Volver a"
   },
   "webs": {
     "title": "Algunas webs en las que he participado",
@@ -344,7 +349,6 @@
   "contact": {
     "title": "Contacto",
     "subtitle": "¿Hablamos? Escribime por cualquiera de estos canales.",
-    "directLinksTitle": "Contacto directo",
     "email": "fcoluccidg@gmail.com",
     "linkedin": "https://www.linkedin.com/in/francocolucci93/",
     "whatsapp": "https://wa.me/5492615581727",
