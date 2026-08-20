@@ -9,12 +9,15 @@
     "contact": "Contacto",
     "langSwitchLabel": "English",
     "langSwitchPath": "/en/",
-    "themeToggleLabel": "Cambiar tema"
+    "themeToggleLabel": "Cambiar tema",
+    "langSwitchFlag": "🇬🇧"
   },
   "hero": {
-    "kicker": "Digital Designer · Mendoza, Argentina",
     "name": "Franco Colucci",
-    "bio": "Soy Franco Colucci, Digital Designer de Mendoza, Argentina, con más de 5 años de experiencia en diseño para redes sociales, publicidad digital y web. Además, cuento con conocimientos de UX/UI con los que realicé varios proyectos, y utilizo inteligencia artificial tanto para diseño gráfico como para procesos de UX/UI. Actualmente diseño para instituciones y marcas, trabajando con Adobe, Figma, WordPress y herramientas de IA generativa.",
+    "role": "Digital Designer",
+    "bioLead": "¡Hola!",
+    "bio": "Mi nombre es Franco Colucci, soy de Mendoza, Argentina, y soy Diseñador Digital hace más de 5 años, y estos son mis últimos trabajos.",
+    "photoSrc": null,
     "cvButton": "Descargar CV",
     "cvNote": "PDF · última actualización pendiente",
     "languagesTitle": "Idiomas",

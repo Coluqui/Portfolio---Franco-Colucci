@@ -9,15 +9,29 @@ const initials = h.name
   .join('')
   .slice(0, 2)
   .toUpperCase();
+
+const toolAbbr = {
+  Illustrator: 'Ai',
+  Photoshop: 'Ps',
+  InDesign: 'Id',
+  Figma: 'Fi',
+  WordPress: 'W',
+  Canva: 'Cv',
+  Affinity: 'Af',
+  'IA generativa': 'AI',
+  'Generative AI': 'AI',
+  'Claude Code': 'CC',
+  'Claude Design': 'CD',
+};
 ---
 
 <section class="hero" id="about">
   <div class="wrap">
     <div class="hero-top">
       <div class="hero-copy">
-        <p class="hero-kicker">{h.kicker}</p>
         <h1 class="hero-name">{h.name}</h1>
-        <p class="hero-bio">{h.bio}</p>
+        <p class="hero-role">{h.role}</p>
+        <p class="hero-bio"><strong>{h.bioLead}</strong> {h.bio}</p>
 
         <div class="hero-cv-row">
           <a class="btn-primary" href="/cv-franco-colucci.pdf" download>
@@ -25,46 +39,26 @@ const initials = h.name
           </a>
           <span class="cv-note">{h.cvNote}</span>
         </div>
+
+        <div class="hero-tools-row">
+          {h.tools.map((tool) => (
+            <span class="hero-tool-badge" title={tool} aria-label={tool}>
+              {toolAbbr[tool] || tool.slice(0, 2)}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div class="hero-photo">
         <div class="hero-photo-frame">
-          <span class="hero-photo-placeholder">{initials}</span>
+          {h.photoSrc ? (
+            <img src={h.photoSrc} alt={h.name} />
+          ) : (
+            <span class="hero-photo-placeholder">{initials}</span>
+          )}
         </div>
         <span class="hero-blob hero-blob-coral" aria-hidden="true"></span>
         <span class="hero-blob hero-blob-teal" aria-hidden="true"></span>
-      </div>
-    </div>
-
-    <div class="hero-meta-grid">
-      <div class="hero-meta-block">
-        <h3>{h.toolsTitle}</h3>
-        <div class="tag-list">
-          {h.tools.map((tool) => <span class="chip">{tool}</span>)}
-        </div>
-      </div>
-
-      <div class="hero-meta-block">
-        <h3>{h.skillsTitle}</h3>
-        <div class="tag-list">
-          {h.skills.map((skill) => <span class="chip">{skill}</span>)}
-        </div>
-      </div>
-
-      <div class="hero-meta-block">
-        <h3>{h.languagesTitle}</h3>
-        <ul class="lang-list">
-          {h.languages.map((lang) => (
-            <li>{lang.name} — <span>{lang.level}</span></li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="hero-meta-block">
-        <h3>{h.companiesTitle}</h3>
-        <div class="tag-list">
-          {h.companies.map((company) => <span class="chip">{company}</span>)}
-        </div>
       </div>
     </div>
 

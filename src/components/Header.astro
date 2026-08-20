@@ -13,12 +13,30 @@ const { locale, t } = Astro.props;
     </ul>
 
     <div class="site-header-actions">
-      <button id="theme-toggle" class="icon-btn" type="button" aria-label={t.nav.themeToggleLabel}>
-        <span id="theme-toggle-icon" aria-hidden="true">☀️</span>
-        <span id="theme-toggle-text">{t.nav.themeToggleLabel}</span>
+      <button
+        id="theme-toggle"
+        class="theme-switch"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label={t.nav.themeToggleLabel}
+      >
+        <span class="theme-switch-track">
+          <span class="theme-switch-moon" aria-hidden="true">
+            <span class="theme-switch-moon-base"></span>
+            <span class="theme-switch-moon-mask"></span>
+          </span>
+          <span class="theme-switch-knob"></span>
+        </span>
       </button>
-      <a href={t.nav.langSwitchPath} class="icon-btn" data-lang-switch>
-        {t.nav.langSwitchLabel}
+      <a
+        href={t.nav.langSwitchPath}
+        class="lang-switch"
+        data-lang-switch
+        aria-label={t.nav.langSwitchLabel}
+        title={t.nav.langSwitchLabel}
+      >
+        {t.nav.langSwitchFlag}
       </a>
     </div>
   </div>
@@ -27,11 +45,12 @@ const { locale, t } = Astro.props;
 <script is:inline>
   (function () {
     var btn = document.getElementById('theme-toggle');
-    var icon = document.getElementById('theme-toggle-icon');
 
     function sync() {
       var current = document.documentElement.getAttribute('data-theme') || 'light';
-      icon.textContent = current === 'dark' ? '🌙' : '☀️';
+      var isDark = current === 'dark';
+      btn.classList.toggle('is-dark', isDark);
+      btn.setAttribute('aria-checked', String(isDark));
     }
 
     sync();

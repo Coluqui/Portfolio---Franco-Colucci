@@ -9,12 +9,15 @@
     "contact": "Contact",
     "langSwitchLabel": "Español",
     "langSwitchPath": "/es/",
-    "themeToggleLabel": "Toggle theme"
+    "themeToggleLabel": "Toggle theme",
+    "langSwitchFlag": "🇪🇸"
   },
   "hero": {
-    "kicker": "Digital Designer · Mendoza, Argentina",
     "name": "Franco Colucci",
-    "bio": "I'm Franco Colucci, a Digital Designer based in Mendoza, Argentina, with 5+ years of experience in social media, digital advertising, and web design. I also have UX/UI knowledge, which I've applied on several projects, and I use artificial intelligence both for graphic design and for UX/UI processes. I currently design for institutions and brands, working with Adobe, Figma, WordPress, and generative AI tools.",
+    "role": "Digital Designer",
+    "bioLead": "Hi!",
+    "bio": "My name is Franco Colucci, I'm from Mendoza, Argentina, and I've been a Digital Designer for over 5 years, and these are some of my latest works.",
+    "photoSrc": null,
     "cvButton": "Download CV",
     "cvNote": "PDF · last update pending",
     "languagesTitle": "Languages",

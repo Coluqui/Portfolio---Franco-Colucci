@@ -1,6 +1,13 @@
 ---
 const { t, locale } = Astro.props;
 const w = t.works;
+
+const companyColors = {
+  iscamen: '#1f8a70',
+  moondesk: '#243b6b',
+  carpa: '#e4573d',
+  condimento: '#c9932b',
+};
 ---
 
 <section id="works">
@@ -11,17 +18,66 @@ const w = t.works;
     </div>
 
     <div class="project-cards-grid">
-      {w.groups.map((group) => (
-        <a class="project-card" href={`/${locale}/trabajos/${group.slug}/`}>
-          <div class="project-card-image">
-            <img src={group.items[0].src} alt={group.items[0].alt} loading="lazy" />
-          </div>
-          <h3 class="project-card-title">{group.client}</h3>
-          <p class="project-card-meta">
-            {group.categories.map((cat) => w.categoryLabels[cat]).join(', ')}
-          </p>
-        </a>
-      ))}
+      {w.groups.map((group) => {
+        const previewImages = group.items.slice(0, 5);
+        return (
+          <a class="project-card" href={`/${locale}/trabajos/${group.slug}/`} data-project-card>
+            <div class="project-card-media">
+              <div class="project-card-cover" style={`background:${companyColors[group.slug] || 'var(--color-invert-bg)'}`}>
+                <span class="project-card-cover-name">{group.client}</span>
+              </div>
+              <div class="project-card-slides" data-project-slides>
+                {previewImages.map((item, i) => (
+                  <img
+                    class={`project-card-slide ${i === 0 ? 'is-active' : ''}`}
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            </div>
+            <h3 class="project-card-title">{group.client}</h3>
+            <p class="project-card-meta">
+              {group.categories.map((cat) => w.categoryLabels[cat]).join(', ')}
+            </p>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('[data-project-card]').forEach(function (card) {
+      var slidesWrap = card.querySelector('[data-project-slides]');
+      var slides = slidesWrap.querySelectorAll('.project-card-slide');
+      if (slides.length < 2) return;
+
+      var index = 0;
+      var timer = null;
+
+      function show(i) {
+        slides.forEach(function (s, si) {
+          s.classList.toggle('is-active', si === i);
+        });
+      }
+
+      card.addEventListener('mouseenter', function () {
+        index = 0;
+        show(index);
+        timer = setInterval(function () {
+          index = (index + 1) % slides.length;
+          show(index);
+        }, 900);
+      });
+
+      card.addEventListener('mouseleave', function () {
+        clearInterval(timer);
+        index = 0;
+        show(0);
+      });
+    });
+  })();
+</script>
