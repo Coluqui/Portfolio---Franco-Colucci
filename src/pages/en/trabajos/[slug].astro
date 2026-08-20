@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import ProjectGallery from '../../../components/ProjectGallery.astro';
+import Footer from '../../../components/Footer.astro';
+import t from '../../../i18n/en.json';
+
+export function getStaticPaths() {
+  return t.works.groups.map((group) => ({
+    params: { slug: group.slug },
+    props: { group },
+  }));
+}
+
+const { group } = Astro.props;
+const locale = 'en';
+---
+
+<BaseLayout
+  title={`${group.client} — ${t.meta.title}`}
+  description={t.meta.description}
+  locale={locale}
+>
+  <Header locale={locale} t={t} />
+  <ProjectGallery t={t} group={group} backHref={`/${locale}/#works`} />
+  <Footer t={t} />
+</BaseLayout>
