@@ -1,4 +1,6 @@
 ---
+import WebsHighlight from './WebsHighlight.astro';
+
 const { t, locale } = Astro.props;
 const w = t.works;
 
@@ -46,6 +48,8 @@ const companyColors = {
       })}
     </div>
   </div>
+
+  <WebsHighlight t={t} />
 </section>
 
 <script is:inline>

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --font-display: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   --radius-sm: 10px;
@@ -71,7 +71,7 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0;
@@ -120,7 +120,7 @@ img {
 
 .site-header-name {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -220,27 +220,46 @@ img {
 }
 
 /* Language switch */
-.lang-switch {
+.lang-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
+  justify-content: space-between;
+  width: 60px;
+  height: 30px;
+  padding: 0 5px;
+  border-radius: 999px;
   border: 1px solid var(--color-border);
-  background: transparent;
-  font-size: 1.2rem;
+  background: var(--color-chip-bg);
   text-decoration: none;
-  line-height: 1;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
-.lang-switch:hover {
-  border-color: var(--color-text);
-}
-
-.lang-switch:active {
+.lang-toggle:active {
   transform: scale(0.96);
+}
+
+.lang-toggle-flag {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.lang-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-bg-elevated);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease;
+}
+
+.lang-toggle.is-en .lang-toggle-knob {
+  transform: translateX(28px);
 }
 
 /* ---------- Sections ---------- */
@@ -250,6 +269,7 @@ section {
 
 .section-heading {
   margin-bottom: 2.5rem;
+  text-align: center;
 }
 
 .section-heading h2 {
@@ -378,7 +398,7 @@ section {
 
 .hero-photo-placeholder {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 3.75rem;
   color: var(--color-text-muted);
   opacity: 0.5;
@@ -415,29 +435,29 @@ section {
   gap: 0.65rem;
 }
 
-.hero-tool-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: var(--radius-sm);
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  color: #17171a;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
-  box-shadow: 0 1px 2px rgba(20, 20, 25, 0.06);
+.hero-tool-icon {
+  width: 46px;
+  height: 46px;
+  display: inline-block;
+  line-height: 0;
 }
 
-/* ---------- Webs highlight ---------- */
+.hero-tool-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---------- Webs highlight (full-bleed sub-section of Works) ---------- */
 .webs-highlight {
-  margin-top: clamp(2rem, 4vw, 3rem);
-  background: color-mix(in srgb, var(--shape-coral) 8%, var(--color-bg));
-  border: 1px solid color-mix(in srgb, var(--shape-coral) 28%, var(--color-border));
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.75rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  background: color-mix(in srgb, var(--shape-coral) 10%, var(--color-bg));
+  border-top: 1px solid color-mix(in srgb, var(--shape-coral) 30%, var(--color-border));
+  border-radius: 0;
+  padding: 2.5rem 0;
+}
+
+.webs-highlight-inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -446,7 +466,7 @@ section {
 }
 
 .webs-highlight h3 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--color-text);
 }
 
@@ -514,7 +534,7 @@ section {
 
 .project-card-cover-name {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.3rem;
   color: #fff;
   text-align: center;
