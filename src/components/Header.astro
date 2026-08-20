@@ -5,9 +5,16 @@ const { locale, t } = Astro.props;
 <header class="site-header">
   <div class="site-header-inner">
     <a href={`/${locale}/`} class="site-header-name">Franco Colucci</a>
+
+    <ul class="site-nav-links">
+      <li><a href="#about">{t.nav.about}</a></li>
+      <li><a href="#works">{t.nav.projects}</a></li>
+      <li><a href="#contact">{t.nav.contact}</a></li>
+    </ul>
+
     <div class="site-header-actions">
       <button id="theme-toggle" class="icon-btn" type="button" aria-label={t.nav.themeToggleLabel}>
-        <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+        <span id="theme-toggle-icon" aria-hidden="true">☀️</span>
         <span id="theme-toggle-text">{t.nav.themeToggleLabel}</span>
       </button>
       <a href={t.nav.langSwitchPath} class="icon-btn" data-lang-switch>
@@ -23,14 +30,14 @@ const { locale, t } = Astro.props;
     var icon = document.getElementById('theme-toggle-icon');
 
     function sync() {
-      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
       icon.textContent = current === 'dark' ? '🌙' : '☀️';
     }
 
     sync();
 
     btn.addEventListener('click', function () {
-      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
       var next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);

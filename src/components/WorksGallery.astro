@@ -21,9 +21,8 @@ const w = t.works;
 
         <div class="works-grid">
           {group.items.map((item) => (
-            <button class="work-tile" type="button" data-lightbox-trigger>
+            <button class="work-tile" type="button" data-lightbox-trigger data-client={group.client}>
               <img src={item.src} alt={item.alt} loading="lazy" />
-              <span class="work-tile-tag">{group.client}</span>
             </button>
           ))}
         </div>
@@ -56,8 +55,7 @@ const w = t.works;
 
     var items = triggers.map(function (trigger) {
       var img = trigger.querySelector('img');
-      var tag = trigger.querySelector('.work-tile-tag');
-      return { src: img.src, alt: img.alt, project: tag ? tag.textContent : '' };
+      return { src: img.src, alt: img.alt, project: trigger.dataset.client || '' };
     });
 
     var current = 0;

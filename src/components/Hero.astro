@@ -1,26 +1,39 @@
 ---
-import Cover from './Cover.astro';
 import WebsHighlight from './WebsHighlight.astro';
 
 const { t, locale } = Astro.props;
 const h = t.hero;
+const initials = h.name
+  .split(' ')
+  .map((word) => word[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
 ---
 
 <section class="hero" id="about">
-  <div class="cover-wrap">
-    <Cover />
-  </div>
-
   <div class="wrap">
-    <p class="hero-kicker">{h.kicker}</p>
-    <h1 class="hero-name">{h.name}</h1>
-    <p class="hero-bio">{h.bio}</p>
+    <div class="hero-top">
+      <div class="hero-copy">
+        <p class="hero-kicker">{h.kicker}</p>
+        <h1 class="hero-name">{h.name}</h1>
+        <p class="hero-bio">{h.bio}</p>
 
-    <div class="hero-cv-row">
-      <a class="btn-primary" href="/cv-franco-colucci.pdf" download>
-        {h.cvButton}
-      </a>
-      <span class="cv-note">{h.cvNote}</span>
+        <div class="hero-cv-row">
+          <a class="btn-primary" href="/cv-franco-colucci.pdf" download>
+            {h.cvButton}
+          </a>
+          <span class="cv-note">{h.cvNote}</span>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="hero-photo-frame">
+          <span class="hero-photo-placeholder">{initials}</span>
+        </div>
+        <span class="hero-blob hero-blob-coral" aria-hidden="true"></span>
+        <span class="hero-blob hero-blob-teal" aria-hidden="true"></span>
+      </div>
     </div>
 
     <div class="hero-meta-grid">
