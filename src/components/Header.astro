@@ -22,6 +22,12 @@ const { locale, t } = Astro.props;
         aria-label={t.nav.themeToggleLabel}
       >
         <span class="theme-switch-track">
+          <span class="theme-switch-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f4f4f5" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path>
+            </svg>
+          </span>
           <span class="theme-switch-moon" aria-hidden="true">
             <span class="theme-switch-moon-base"></span>
             <span class="theme-switch-moon-mask"></span>
@@ -29,17 +35,27 @@ const { locale, t } = Astro.props;
           <span class="theme-switch-knob"></span>
         </span>
       </button>
-      <a
-        href={t.nav.langSwitchPath}
-        class={`lang-toggle ${locale === 'en' ? 'is-en' : ''}`}
-        data-lang-switch
-        aria-label={t.nav.langSwitchLabel}
-        title={t.nav.langSwitchLabel}
-      >
-        <span class="lang-toggle-flag">🇪🇸</span>
-        <span class="lang-toggle-flag">🇬🇧</span>
-        <span class="lang-toggle-knob"></span>
-      </a>
+
+      <div class="lang-dropdown" data-lang-dropdown>
+        <button
+          type="button"
+          class="lang-dropdown-trigger"
+          data-lang-trigger
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label={t.nav.langSwitchLabel}
+        >
+          {locale === 'es' ? '🇪🇸' : '🇬🇧'}
+        </button>
+        <div class="lang-dropdown-menu" data-lang-menu role="menu">
+          <a href="/es/" class={`lang-dropdown-item ${locale === 'es' ? 'is-active' : ''}`} role="menuitem">
+            <span aria-hidden="true">🇪🇸</span> Español
+          </a>
+          <a href="/en/" class={`lang-dropdown-item ${locale === 'en' ? 'is-active' : ''}`} role="menuitem">
+            <span aria-hidden="true">🇬🇧</span> English
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -63,6 +79,36 @@ const { locale, t } = Astro.props;
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       sync();
+    });
+  })();
+
+  (function () {
+    var dropdown = document.querySelector('[data-lang-dropdown]');
+    var trigger = dropdown.querySelector('[data-lang-trigger]');
+    var menu = dropdown.querySelector('[data-lang-menu]');
+
+    function close() {
+      dropdown.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggle() {
+      var willOpen = !dropdown.classList.contains('is-open');
+      dropdown.classList.toggle('is-open', willOpen);
+      trigger.setAttribute('aria-expanded', String(willOpen));
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggle();
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
     });
   })();
 </script>
