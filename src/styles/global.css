@@ -4,9 +4,9 @@
   --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 28px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
 
   --max-width: 1180px;
   --space-section: clamp(3.5rem, 7vw, 6.5rem);
@@ -24,7 +24,7 @@
   --color-bg: #ffffff;
   --color-bg-elevated: #ffffff;
   --color-border: #e7e7ea;
-  --color-text: #121214;
+  --color-text: #1e1e1e;
   --color-text-muted: #6b6b72;
   --color-accent: #e4573d;
   --color-accent-text: #ffffff;
@@ -41,11 +41,11 @@
   --color-text: #f4f4f5;
   --color-text-muted: #a3a3aa;
   --color-accent: #ff7a5c;
-  --color-accent-text: #17171a;
+  --color-accent-text: #1e1e1e;
   --color-chip-bg: #232328;
   --color-chip-text: #d6d6db;
   --color-invert-bg: #f4f4f5;
-  --color-invert-text: #121214;
+  --color-invert-text: #1e1e1e;
 }
 
 * {
@@ -194,6 +194,22 @@ img {
   transform: translateX(23px);
 }
 
+.theme-switch-sun {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 19px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switch-sun svg {
+  width: 100%;
+  height: 100%;
+}
+
 .theme-switch-moon {
   position: absolute;
   top: 6px;
@@ -219,47 +235,75 @@ img {
   background: #1f1f22;
 }
 
-/* Language switch */
-.lang-toggle {
+/* Language dropdown */
+.lang-dropdown {
   position: relative;
+}
+
+.lang-dropdown-trigger {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 60px;
-  height: 30px;
-  padding: 0 5px;
-  border-radius: 999px;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  background: var(--color-chip-bg);
-  text-decoration: none;
-  transition: transform 0.15s ease;
-}
-
-.lang-toggle:active {
-  transform: scale(0.96);
-}
-
-.lang-toggle-flag {
-  position: relative;
-  z-index: 1;
-  font-size: 0.85rem;
+  background: transparent;
+  font-size: 1.15rem;
   line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
 }
 
-.lang-toggle-knob {
+.lang-dropdown-trigger:hover {
+  border-color: var(--color-text);
+}
+
+.lang-dropdown-menu {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
   background: var(--color-bg-elevated);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
-  transition: transform 0.25s ease;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 30;
 }
 
-.lang-toggle.is-en .lang-toggle-knob {
-  transform: translateX(28px);
+.lang-dropdown.is-open .lang-dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lang-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.lang-dropdown-item:hover {
+  background: var(--color-chip-bg);
+}
+
+.lang-dropdown-item.is-active {
+  font-weight: 700;
+  background: var(--color-chip-bg);
 }
 
 /* ---------- Sections ---------- */
@@ -394,6 +438,7 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 15%;
 }
 
 .hero-photo-placeholder {
@@ -432,12 +477,14 @@ section {
 .hero-tools-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  align-items: center;
+  gap: 1.1rem;
+  color: var(--color-text-muted);
 }
 
 .hero-tool-icon {
-  width: 46px;
-  height: 46px;
+  width: 34px;
+  height: 34px;
   display: inline-block;
   line-height: 0;
 }
@@ -717,6 +764,7 @@ section {
 .contact-social-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
 }
 
